@@ -1,0 +1,8 @@
+.AnswerItem {
+  height: 30px;
+  border: 1px solid black;
+}
+
+.AnswerItem:hover {
+  cursor: pointer;
+}
