@@ -6,3 +6,11 @@
 .AnswerItem:hover {
   cursor: pointer;
 }
+
+.success {
+  background-color: rgb(201, 255, 201);
+}
+
+.error {
+  background-color: rgb(255, 199, 199);
+}

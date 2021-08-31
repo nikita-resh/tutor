@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./Quiz.css";
 import ActiveQuestion from "../../components/ActiveQuestion/ActiveQuestion";
+import Finish from "../../components/Finish/Finish";
 
 class Quiz extends Component {
   state = {
     ActiveQuestion: 0,
     answerState: null,
+    isFinished: false,
     results: {},
     quiz: [
       {
@@ -66,7 +68,18 @@ class Quiz extends Component {
       this.setState({ answerState: { [answerId]: "success" }, results });
       console.log(this.state.results);
 
-      this.setState({ ActiveQuestion: this.state.ActiveQuestion + 1 });
+      const timeout = window.setTimeout(() => {
+        if (this.isQuizFinished()) {
+          console.log("Finished");
+          this.setState({ isFinished: true });
+        } else {
+          this.setState({
+            ActiveQuestion: this.state.ActiveQuestion + 1,
+            answerState: null,
+          });
+        }
+        window.clearTimeout(timeout);
+      }, 1000);
     }
     // если выбран неправильный вариант
     else {
@@ -81,11 +94,14 @@ class Quiz extends Component {
   }
 
   render() {
-    return (
+    return this.state.isFinished ? (
+      <Finish results={this.state.results} quiz={this.state.quiz} />
+    ) : (
       <ActiveQuestion
-        question={this.state.quiz[this.state.ActiveQuestion].question}
+        question={this.state.quiz[this.state.ActiveQuestion]}
         answersList={this.state.quiz[this.state.ActiveQuestion].answers}
         onAnswerClick={this.onAnswerClickHandler}
+        state={this.state.answerState}
       />
     );
   }
