@@ -1,8 +1,12 @@
+import React, { Component } from "react";
+import Layout from "./hoc/Layout/Layout";
+import Quiz from "./containers/Quiz/Quiz";
+
 function App() {
   return (
-    <div className="App">
-      <h1>React</h1>
-    </div>
+    <Layout>
+      <Quiz />
+    </Layout>
   );
 }
 
