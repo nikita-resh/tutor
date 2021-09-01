@@ -12,6 +12,7 @@ const ActiveQuestion = (props) => {
         rightAnswer={props.question.rightAnswer}
         state={props.state}
       />
+      <button>Submit</button>
     </div>
   );
 };
