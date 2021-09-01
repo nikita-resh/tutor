@@ -12,7 +12,7 @@ const ActiveQuestion = (props) => {
         rightAnswer={props.question.rightAnswer}
         state={props.state}
       />
-      <button>Submit</button>
+      <button onClick={() => props.onCheckClick()}>Submit</button>
     </div>
   );
 };
