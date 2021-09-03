@@ -1,10 +1,16 @@
 .ActiveQuestion {
-  /* border: 1px solid black; */
   position: relative;
   padding-bottom: 55px;
   width: 580px;
-  /* padding: 15px; */
   border-bottom: 2px solid #00000017;
+}
+
+.ActiveQuestion small {
+  font-size: 14px;
+  color: #ef5350;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
 }
 
 .true {

@@ -11,7 +11,12 @@ const ActiveQuestion = (props) => {
   return (
     <div>
       <div className={"ActiveQuestion"}>
-        <h2 className={questionClasses.join(" ")}>{props.question.question}</h2>
+        <h2 className={questionClasses.join(" ")}>
+          {props.question.question}
+          <small>
+            {props.question.id}/{props.length}
+          </small>
+        </h2>
         <AnswersList
           answersList={props.answersList}
           onAnswerClick={props.onAnswerClick}

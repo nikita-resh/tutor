@@ -210,6 +210,7 @@ class Quiz extends Component {
           onCheckPress={this.state.onCheckPress}
           cheers={this.state.cheers}
           answerArray={this.state.answerArray}
+          length={this.state.quiz.length}
         />
         <div className="Quiz__info">
           <h3>Інфармацыя пра тэст</h3>
