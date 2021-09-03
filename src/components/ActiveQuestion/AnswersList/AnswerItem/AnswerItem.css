@@ -14,7 +14,6 @@
 }
 
 .AnswerItem:hover {
-  border: 2px solid #000000;
   background-color: rgba(231, 230, 230, 0.329);
 }
 
