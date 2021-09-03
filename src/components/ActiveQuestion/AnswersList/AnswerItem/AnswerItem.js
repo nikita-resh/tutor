@@ -3,9 +3,8 @@ import "./AnswerItem.css";
 
 const AnswerItem = (props) => {
   const classes = ["AnswerItem"];
-  if (props.state) {
-    // console.log(props.state);
-    classes.push(props.state);
+  if (props.answerArray.indexOf(props.index + 1) > -1) {
+    classes.push("selected");
   }
 
   return (

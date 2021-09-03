@@ -16,6 +16,8 @@ const ActiveQuestion = (props) => {
         onAnswerClick={props.onAnswerClick}
         rightAnswer={props.question.rightAnswer}
         state={props.state}
+        answerArray={props.answerArray}
+        results={props.results}
       />
       <button className="btn-check" onClick={() => props.onCheckClick()}>
         Адказаць

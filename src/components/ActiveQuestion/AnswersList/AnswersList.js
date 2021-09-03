@@ -9,6 +9,9 @@ const AnswersList = (props) => (
         <AnswerItem
           answer={answer}
           key={index}
+          index={index}
+          results={props.results}
+          answerArray={props.answerArray}
           answerId={index}
           onAnswerClick={props.onAnswerClick}
           rightAnswer={props.rightAnswer}
