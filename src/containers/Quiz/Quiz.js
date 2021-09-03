@@ -6,7 +6,7 @@ import Finish from "../../components/Finish/Finish";
 class Quiz extends Component {
   state = {
     ActiveQuestion: 0,
-    attempts: 0,
+    onCheckPress: 0,
     quizTheme: "Раздзелы беларускай мовы. Паняцці мовы і маўлення.",
     quizLevel: "лёгкі.",
     videoLink: "",
@@ -15,12 +15,19 @@ class Quiz extends Component {
     answerState: null,
     isFinished: false,
     results: {},
+    isRight: null,
     answerArray: [],
+    cheers: [
+      "1 памыляючыся, ты вучышся новаму. Так трымаць!",
+      "2 памыляючыся, ты вучышся новаму. Так трымаць!",
+      "3 памыляючыся, ты вучышся новаму. Так трымаць!",
+    ],
     quiz: [
       {
         rightAnswer: [1, 2],
         id: 1,
-        question: "Какого цвета небо?",
+        question:
+          "Што з ніжэй пералічанага НЕ з’яўляецца раздзелам сучаснай беларускай мовы?",
         answers: [
           { text: "Чёрное", id: 1 },
           { text: "Синее", id: 2 },
@@ -54,44 +61,6 @@ class Quiz extends Component {
   };
 
   onAnswerClickHandler = (answerId) => {
-    // при попытке ответить еще раз
-    // if (this.state.answerState) {
-    //   let key = Object.keys(this.state.answerState)[0];
-    //   if (this.state.answerState[key] === "succes") {
-    //     return;
-    //   }
-    // }
-    // const question = this.state.quiz[this.state.ActiveQuestion];
-    // const results = this.state.results;
-    // если выбран правильный ответ
-    // if (question.rightAnswer === answerId) {
-    //   //если это первая попытка
-    //   if (!results[this.state.ActiveQuestion]) {
-    //     results[this.state.ActiveQuestion] = "success";
-    //   }
-    //   this.setState({ answerState: { [answerId]: "success" }, results });
-    //   console.log(this.state.results);
-    //   const timeout = window.setTimeout(() => {
-    //     if (this.isQuizFinished()) {
-    //       console.log("Finished");
-    //       this.setState({ isFinished: true });
-    //     } else {
-    //       this.setState({
-    //         ActiveQuestion: this.state.ActiveQuestion + 1,
-    //         answerState: null,
-    //       });
-    //     }
-    //     window.clearTimeout(timeout);
-    //   }, 1000);
-    // }
-    // если выбран неправильный вариант
-    // else {
-    //   results[this.state.ActiveQuestion] = "error";
-    //   this.setState({ answerState: { [answerId]: "error" }, results });
-    //   console.log(this.state.results);
-    // }
-
-    // todo push into array
     if (this.state.answerArray.indexOf(answerId) === -1) {
       let array = this.state.answerArray;
       array.push(answerId);
@@ -101,29 +70,116 @@ class Quiz extends Component {
       array.splice(array.indexOf(answerId, 1));
       this.setState({ answerArray: array });
     }
-    const question = this.state.quiz[this.state.ActiveQuestion];
-    console.log(this);
   };
 
   onCheckClick = () => {
     const question = this.state.quiz[this.state.ActiveQuestion];
     const answers = this.state.answerArray;
     const rightAnswers = question.rightAnswer;
+    const results = this.state.results;
 
-    if (answers.length === rightAnswers.length) {
-      answers.sort((a, b) => a - b);
-      rightAnswers.sort((a, b) => a - b);
-      console.log(answers, rightAnswers);
+    // если это не первое нажатие на кнопку
+    if (results[question.id - 1]) {
+      // первое нажатие при правильной первой попытке
+      if (results[question.id - 1] === "success") {
+        this.setState((state) => {
+          return {
+            onCheckPress: 0,
+            isRight: null,
+            answerArray: [],
+            ActiveQuestion: question.id,
+            isFinished: this.isQuizFinished(),
+          };
+        });
+      }
+      // не первое нажатие при неправильной первой попытке
+      else {
+        if (this.state.onCheckPress === 1) {
+          if (answers.length === rightAnswers.length) {
+            // если выбирали не в том порядке, что в ключах
+            answers.sort((a, b) => a - b);
+            rightAnswers.sort((a, b) => a - b);
 
-      for (let i = 0; i < answers.length; i++) {
-        if (answers[i] !== rightAnswers[i]) {
-          console.log(false);
-          break;
+            let indicator = 0;
+            for (let i = 0; i < answers.length; i++) {
+              if (answers[i] !== rightAnswers[i]) {
+                this.setState((state) => {
+                  return {
+                    isRight: false,
+                    onCheckPress: this.state.onCheckPress + 1,
+                  };
+                });
+                indicator++;
+                break;
+              }
+            }
+            if (indicator === 0) {
+              this.setState((state) => {
+                return {
+                  isRight: true,
+                  onCheckPress: this.state.onCheckPress + 1,
+                };
+              });
+            }
+          } else {
+            this.setState((state) => {
+              return {
+                isRight: false,
+                onCheckPress: this.state.onCheckPress + 1,
+              };
+            });
+          }
+        }
+        if (this.state.onCheckPress === 2) {
+          this.setState((state) => {
+            return {
+              onCheckPress: 0,
+              isRight: null,
+              answerArray: [],
+              ActiveQuestion: question.id,
+              isFinished: this.isQuizFinished(),
+            };
+          });
         }
       }
-      console.log(true);
     } else {
-      console.log(false);
+      if (answers.length === rightAnswers.length) {
+        // если выбирали не в том порядке, что в ключах
+        answers.sort((a, b) => a - b);
+        rightAnswers.sort((a, b) => a - b);
+
+        let indicator = 0;
+        for (let i = 0; i < answers.length; i++) {
+          if (answers[i] !== rightAnswers[i]) {
+            this.setState((state) => {
+              return {
+                results: { ...results, [question.id - 1]: "error" },
+                isRight: false,
+                onCheckPress: this.state.onCheckPress + 1,
+              };
+            });
+            indicator++;
+            break;
+          }
+        }
+        if (indicator === 0) {
+          this.setState((state) => {
+            return {
+              results: { ...results, [question.id - 1]: "success" },
+              isRight: true,
+              onCheckPress: this.state.onCheckPress + 1,
+            };
+          });
+        }
+      } else {
+        this.setState((state) => {
+          return {
+            results: { ...this.state.results, [question.id - 1]: "error" },
+            isRight: false,
+            onCheckPress: this.state.onCheckPress + 1,
+          };
+        });
+      }
     }
   };
 
@@ -142,6 +198,11 @@ class Quiz extends Component {
           onAnswerClick={this.onAnswerClickHandler}
           state={this.state.answerState}
           onCheckClick={this.onCheckClick}
+          isRight={this.state.isRight}
+          results={this.state.results}
+          ActiveQuestion={this.state.ActiveQuestion}
+          onCheckPress={this.state.onCheckPress}
+          cheers={this.state.cheers}
         />
         <div className="Quiz__info">
           <h3>Інфармацыя пра тэст</h3>
@@ -161,7 +222,7 @@ class Quiz extends Component {
             .
           </p>
           <p>
-            <b>Каментар ад стваральнікаў:&nbsp;</b>
+            <b>Каментар ад стваральнікаў: </b>
             {this.state.creatorComment}
           </p>
         </div>

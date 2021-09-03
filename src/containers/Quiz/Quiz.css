@@ -1,2 +1,35 @@
 .Quiz {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Quiz .ActiveQuestion h2 {
+  font: 500 normal 18px/27px "M PLUS Rounded 1c", sans-serif;
+  max-width: 580px;
+  padding: 15px;
+  margin-bottom: 35px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Quiz__info {
+  padding: 15px 30px;
+  width: 340px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 9px 9px 0px 0px;
+}
+
+.Quiz__info h3 {
+  font: 900 normal 18px/55px "M PLUS Rounded 1c", sans-serif;
+}
+
+.Quiz__info p {
+  font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
+  margin-bottom: 5px;
+}
+
+.Quiz__info b {
+  font: 700 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
+}
+.Quiz__info a {
+  color: #ef5350;
 }

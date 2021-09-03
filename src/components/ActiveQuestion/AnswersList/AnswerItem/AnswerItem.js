@@ -14,7 +14,6 @@ const AnswerItem = (props) => {
         className={classes.join(" ")}
         onClick={() => props.onAnswerClick(props.answer.id)}
       >
-        <small>{props.rightAnswer}</small>
         {props.answer.text}
       </p>
     </li>
