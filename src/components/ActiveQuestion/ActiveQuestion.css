@@ -1,7 +1,8 @@
 .ActiveQuestion {
   /* border: 1px solid black; */
   position: relative;
-  padding-bottom: 45px;
+  padding-bottom: 55px;
+  width: 580px;
   /* padding: 15px; */
   border-bottom: 2px solid #00000017;
 }
@@ -16,9 +17,10 @@
 .btn-check {
   position: absolute;
   right: 0px;
+  bottom: 15px;
   border: 2px solid#4eac99;
   border-radius: 5px;
-  width: 130px;
+  width: 160px;
   height: 35px;
   background-color: #fff;
   font: 700 normal 14px/19px "M PLUS Rounded 1c", sans-serif;
