@@ -1,2 +1,9 @@
-.QuizList {
+.QuizList h1 {
+  font: 500 normal 32px/40px "M PLUS Rounded 1c", sans-serif;
+}
+
+.QuizList li a {
+  color: black;
+  text-decoration: none;
+  font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
 }
