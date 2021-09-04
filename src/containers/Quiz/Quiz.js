@@ -73,7 +73,7 @@ class Quiz extends Component {
       this.setState({ answerArray: array });
     } else {
       let array = this.state.answerArray;
-      array.splice(array.indexOf(answerId, 1));
+      array.splice(array.indexOf(answerId), 1);
       this.setState({ answerArray: array });
     }
   };
