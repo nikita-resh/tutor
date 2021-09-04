@@ -3,7 +3,9 @@
   justify-content: space-between;
 }
 
-.Quiz .ActiveQuestion h2 {
+h2.Question {
+  margin-top: 0;
+  box-sizing: border-box;
   font: 500 normal 18px/27px "M PLUS Rounded 1c", sans-serif;
   max-width: 580px;
   padding: 15px;

@@ -1,4 +1,5 @@
 .AnswerItem {
+  box-sizing: border-box;
   height: 40px;
   border: 1px solid black;
   padding-left: 10px;

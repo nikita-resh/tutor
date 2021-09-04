@@ -1,4 +1,5 @@
 .Cheer {
+  box-sizing: border-box;
   margin-top: 40px;
   font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
   max-width: 580px;

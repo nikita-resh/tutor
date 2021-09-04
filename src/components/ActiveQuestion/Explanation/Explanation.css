@@ -1,4 +1,5 @@
 .Explanation {
+  box-sizing: border-box;
   font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
   max-width: 580px;
   padding: 10px 40px;

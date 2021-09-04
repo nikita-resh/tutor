@@ -5,7 +5,7 @@ import Cheer from "./Cheer/Cheer";
 import Explanation from "./Explanation/Explanation";
 
 const ActiveQuestion = (props) => {
-  const questionClasses = ["ActiveQuestion"];
+  const questionClasses = ["Question"];
   questionClasses.push(props.isRight === null ? "" : `${props.isRight}`);
 
   return (
