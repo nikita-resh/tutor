@@ -22,11 +22,13 @@ export default class QuizList extends Component {
       const response = await axios.get(
         "https://react-quiz-c09a9-default-rtdb.europe-west1.firebasedatabase.app/quizes.json"
       );
+
       const quizes = [];
       Object.keys(response.data).forEach((key, index) => {
+        console.log();
         quizes.push({
           id: key,
-          name: `Тест № ${index + 1}`,
+          name: `${response.data[key].quizTheme} Узровень складанасці: ${response.data[key].quizLevel}`,
         });
       });
 
@@ -43,7 +45,7 @@ export default class QuizList extends Component {
     return (
       <div className="QuizList">
         <div>
-          <h1>Список тестов</h1>
+          <h1>Спіс тэстаў</h1>
           {this.state.loading ? <Loader /> : <ul>{this.renderQuizes()}</ul>}
         </div>
       </div>
