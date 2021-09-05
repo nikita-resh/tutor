@@ -1,0 +1,407 @@
+.wrapper {
+  width: 975px;
+  margin: 0 auto;
+}
+
+#telegram {
+  width: 100%;
+  height: 40px;
+  color: white;
+  background-color: #5cc2ad;
+  font: 500 normal 15px/22px "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#telegram a {
+  color: white;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn {
+  height: 38px;
+  border-radius: 5px;
+  border: 2px solid #ef5350;
+  font: 700 normal 14px/19px "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.btn a {
+  text-decoration: none;
+}
+
+.btn-watch {
+  height: 45px;
+  width: 156px;
+}
+
+.btn-more-info {
+  height: 45px;
+  width: 200px;
+}
+
+.btn-start {
+  height: 35px;
+  width: 150px;
+}
+
+.btn-video {
+  height: 35px;
+  width: 135px;
+}
+
+.btn_nofill {
+  display: inline-block;
+  background: none;
+  color: #ef5350;
+}
+
+.btn_fill {
+  display: inline-block;
+  color: #ffffff;
+  background-color: #ef5350;
+}
+
+.btn_gold_nofill {
+  color: #f4bf9f;
+  border: 2px solid #f4bf9f;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: #e67373;
+  border: 2px solid #e67373;
+}
+
+.header {
+  height: 81px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .logo {
+  font: 400 normal 15px/26px "Pacifico", cursive;
+}
+
+.header .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 618px;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header a {
+  font: 500 normal 14px/21px "M PLUS Rounded 1c", sans-serif;
+  text-decoration: none;
+  color: #3f3f3f;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.header a:hover {
+  color: #ef5350;
+}
+
+.info .bg {
+  background: #f7efe6;
+  width: 1082px;
+  height: 448px;
+  margin: 0 auto;
+  border-radius: 38px;
+}
+
+.info .wrapper {
+  height: 100%;
+  background: url("./exam.png") right center no-repeat;
+}
+
+.info h2 {
+  max-width: 556px;
+  margin-top: 6px;
+  font: 700 normal 35px/45px "M PLUS Rounded 1c", sans-serif;
+}
+
+.info small {
+  display: block;
+  font: 400 normal 14px/16px "Arial", sans-serif;
+  padding-top: 52px;
+  color: #ef5350;
+}
+
+.info .offer {
+  font: 500 normal 18px/27px "M PLUS Rounded 1c", sans-serif;
+  width: 454px;
+  margin-top: 17px;
+}
+
+.info .btn {
+  margin-top: 29px;
+  text-decoration: none;
+}
+
+.info .btn_nofill {
+  margin-left: 24px;
+}
+
+.videos .chapter-title {
+  text-align: center;
+  margin-top: 80px;
+  font: 500 normal 30px/30px "M PLUS Rounded 1c", sans-serif;
+}
+
+.videos .videos-items {
+  margin: 0 auto;
+  margin-top: 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+}
+
+.videos .video {
+  margin: 10px;
+  width: 300px;
+  height: 244px;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 19px;
+}
+
+.videos .video .circle-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 255px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+.videos .video .circle {
+  display: inline-block;
+  height: 59px;
+  width: 59px;
+  border-radius: 50%;
+  border: 2px solid #f4bf9f;
+  color: #f4bf9f;
+  text-align: center;
+  font: 700 normal 30px/59px "M PLUS Rounded 1c", sans-serif;
+}
+
+.videos .video__title {
+  height: 59px;
+  max-width: 181px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font: 700 normal 16px/19px "M PLUS Rounded 1c", sans-serif;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.videos .video__description {
+  max-width: 255px;
+  margin: 0 auto;
+  font: 500 normal 13px/19px "M PLUS Rounded 1c", sans-serif;
+  margin-top: 25px;
+}
+
+.videos .video .btn-video:hover {
+  background: #f4bf9f;
+  color: white;
+  border: #f4bf9f;
+}
+
+.videos .buttons {
+  width: 248px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.videos a {
+  text-decoration: none;
+}
+
+.videos .btn {
+  text-decoration: none;
+}
+
+.videos .btn_fill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 114px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.videos .btn_fill a {
+  color: white;
+}
+
+.videos .btn_gold_nofill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 130px;
+}
+
+.videos .btn_gold_nofill a {
+  color: #f4bf9f;
+}
+
+.creators {
+  background: url("./bg/creators-bg.svg") center bottom no-repeat;
+}
+
+.creators .wrapper {
+  height: 100%;
+  background: url("./bg/creators.png") right bottom no-repeat;
+  padding-bottom: 32px;
+}
+
+.creators .wrapper ul {
+  margin-left: 20px;
+  list-style: disc outside;
+}
+
+.creators .wrapper ul li {
+  max-width: 550px;
+  font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
+}
+
+.creators .wrapper small {
+  display: block;
+  text-align: center;
+  font: 700 normal 16px/22px "M PLUS Rounded 1c", sans-serif;
+  color: #efae87;
+}
+
+.creators .wrapper h3 {
+  margin: 0 auto;
+  text-align: center;
+  width: 330px;
+  font: 900 normal 20px/30px "M PLUS Rounded 1c", sans-serif;
+  margin-bottom: 50px;
+}
+
+.creators .wrapper .creator-name {
+  font: 700 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
+}
+
+.creators .wrapper .btn {
+  margin-top: 20px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font: 700 normal 14px/45px "M PLUS Rounded 1c", sans-serif;
+}
+
+.footer {
+  height: 153px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.footer .wrapper {
+  height: 57px;
+  padding: 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #f7efe6;
+  font: 500 normal 14px/45px "M PLUS Rounded 1c", sans-serif;
+  border-radius: 42px;
+}
+
+.footer .wrapper a {
+  color: #000;
+}
