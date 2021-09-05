@@ -5,7 +5,7 @@ import Input from "../../components/UI/Input/Input";
 import Select from "../../components/UI/Input/Select/Select";
 import { validate } from "../../form/formFramework";
 import { validateForm } from "../../form/formFramework";
-import axios from "axios";
+import axios from "../../axios/axios-quiz";
 
 function createFormControls() {
   return {
@@ -179,10 +179,7 @@ export default class QuizCreator extends Component {
     e.preventDefault();
 
     try {
-      await axios.post(
-        "https://react-quiz-c09a9-default-rtdb.europe-west1.firebasedatabase.app/quizes.json",
-        this.state.quiz
-      );
+      await axios.post("/quizes.json", this.state.quiz);
       this.setState({
         quiz: [],
         formControls: createFormControls(),

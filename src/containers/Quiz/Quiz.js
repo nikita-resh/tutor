@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Quiz.css";
 import ActiveQuestion from "../../components/ActiveQuestion/ActiveQuestion";
 import Finish from "../../components/Finish/Finish";
+import axios from "../../axios/axios-quiz";
+import Loader from "../../components/UI/Input/Loader/Loader";
 
 class Quiz extends Component {
   state = {
@@ -22,48 +24,8 @@ class Quiz extends Component {
       "2 памыляючыся, ты вучышся новаму. Так трымаць!",
       "3 памыляючыся, ты вучышся новаму. Так трымаць!",
     ],
-    quiz: [
-      {
-        rightAnswer: [1, 2],
-        id: 1,
-        question:
-          "Што з ніжэй пералічанага НЕ з’яўляецца раздзелам сучаснай беларускай мовы?",
-        answers: [
-          { text: "Чёрное", id: 1 },
-          { text: "Синее", id: 2 },
-          { text: "Красное", id: 3 },
-          { text: "Голубое", id: 4 },
-        ],
-        explanation:
-          "Сананіміка - гэта не раздзел беларускай мовы, а проста прыдуманае намі паняцце, звязанае са словам сінонім. Архіптыка ўвогуле не мае ніякага лагічнага апраўдання. Гэта правіла базіруецца на простым разуменні таго, якія разделы мовы існуюць: раім пераглядзець відэаўрок.",
-      },
-      {
-        rightAnswer: [2, 3],
-        id: 2,
-        question: "Какого цвета трава?",
-        answers: [
-          { text: "Чёрное", id: 1 },
-          { text: "Зелёная", id: 2 },
-          { text: "Красное", id: 3 },
-          { text: "Голубое", id: 4 },
-        ],
-        explanation:
-          "Сананіміка - гэта не раздзел беларускай мовы, а проста прыдуманае намі паняцце, звязанае са словам сінонім. Архіптыка ўвогуле не мае ніякага лагічнага апраўдання. Гэта правіла базіруецца на простым разуменні таго, якія разделы мовы існуюць: раім пераглядзець відэаўрок.",
-      },
-      {
-        rightAnswer: [3],
-        id: 3,
-        question: "Какого цвета земля?",
-        answers: [
-          { text: "Чёрное", id: 1 },
-          { text: "Коричневая", id: 2 },
-          { text: "Красное", id: 3 },
-          { text: "Голубое", id: 4 },
-        ],
-        explanation:
-          "Сананіміка - гэта не раздзел беларускай мовы, а проста прыдуманае намі паняцце, звязанае са словам сінонім. Архіптыка ўвогуле не мае ніякага лагічнага апраўдання. Гэта правіла базіруецца на простым разуменні таго, якія разделы мовы існуюць: раім пераглядзець відэаўрок.",
-      },
-    ],
+    quiz: [],
+    loading: true,
   };
 
   onAnswerClickHandler = (answerId) => {
@@ -193,8 +155,18 @@ class Quiz extends Component {
     return this.state.ActiveQuestion + 1 === this.state.quiz.length;
   }
 
-  componentDidMount() {
-    console.log("Quiz ID ", this.props.match.params.id);
+  async componentDidMount() {
+    // console.log("Quiz ID ", this.props.match.params.id);
+    try {
+      const response = await axios.get(
+        `/quizes/${this.props.match.params.id}.json`
+      );
+      const quiz = response.data;
+
+      this.setState({ quiz, loading: false });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {
@@ -202,42 +174,48 @@ class Quiz extends Component {
       <Finish results={this.state.results} quiz={this.state.quiz} />
     ) : (
       <div className="Quiz">
-        <ActiveQuestion
-          question={this.state.quiz[this.state.ActiveQuestion]}
-          answersList={this.state.quiz[this.state.ActiveQuestion].answers}
-          onAnswerClick={this.onAnswerClickHandler}
-          state={this.state.answerState}
-          onCheckClick={this.onCheckClick}
-          isRight={this.state.isRight}
-          results={this.state.results}
-          ActiveQuestion={this.state.ActiveQuestion}
-          onCheckPress={this.state.onCheckPress}
-          cheers={this.state.cheers}
-          answerArray={this.state.answerArray}
-          length={this.state.quiz.length}
-        />
-        <div className="Quiz__info">
-          <h3>Інфармацыя пра тэст</h3>
-          <p>
-            <b>Тэма:&nbsp;</b>
-            {this.state.quizTheme}
-          </p>
-          <p>
-            <b>Узровень цяжкасці:&nbsp;</b>
-            {this.state.quizLevel}
-          </p>
-          <p>
-            <b>Відэазанятак па гэтай тэме:&nbsp;</b>
-            <a href="https://www.google.com/search?q=tutoronline&oq=tutor&aqs=chrome.0.0i512j69i57j0i512l3j69i60j69i61l2.1286j0j7&sourceid=chrome&ie=UTF-8">
-              спасылка
-            </a>
-            .
-          </p>
-          <p>
-            <b>Каментар ад стваральнікаў: </b>
-            {this.state.creatorComment}
-          </p>
-        </div>
+        {this.state.loading ? (
+          <Loader />
+        ) : (
+          <div>
+            <ActiveQuestion
+              question={this.state.quiz[this.state.ActiveQuestion]}
+              answersList={this.state.quiz[this.state.ActiveQuestion].answers}
+              onAnswerClick={this.onAnswerClickHandler}
+              state={this.state.answerState}
+              onCheckClick={this.onCheckClick}
+              isRight={this.state.isRight}
+              results={this.state.results}
+              ActiveQuestion={this.state.ActiveQuestion}
+              onCheckPress={this.state.onCheckPress}
+              cheers={this.state.cheers}
+              answerArray={this.state.answerArray}
+              length={this.state.quiz.length}
+            />
+            <div className="Quiz__info">
+              <h3>Інфармацыя пра тэст</h3>
+              <p>
+                <b>Тэма:&nbsp;</b>
+                {this.state.quizTheme}
+              </p>
+              <p>
+                <b>Узровень цяжкасці:&nbsp;</b>
+                {this.state.quizLevel}
+              </p>
+              <p>
+                <b>Відэазанятак па гэтай тэме:&nbsp;</b>
+                <a href="https://www.google.com/search?q=tutoronline&oq=tutor&aqs=chrome.0.0i512j69i57j0i512l3j69i60j69i61l2.1286j0j7&sourceid=chrome&ie=UTF-8">
+                  спасылка
+                </a>
+                .
+              </p>
+              <p>
+                <b>Каментар ад стваральнікаў: </b>
+                {this.state.creatorComment}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
