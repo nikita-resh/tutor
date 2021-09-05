@@ -1,2 +1,30 @@
 .Auth {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.Auth form {
+  background-color: #eee;
+}
+
+.Auth > div {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+.Auth input {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Auth button {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Auth h1 {
+  font: 500 normal 32px/40px "M PLUS Rounded 1c", sans-serif;
 }
