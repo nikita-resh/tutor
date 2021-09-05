@@ -23,6 +23,13 @@
 .Auth button {
   display: block;
   margin-bottom: 5px;
+  background-color: green;
+}
+
+.Auth button:disabled {
+  display: block;
+  margin-bottom: 5px;
+  background-color: #ccc;
 }
 
 .Auth h1 {
