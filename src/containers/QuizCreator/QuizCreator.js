@@ -5,6 +5,7 @@ import Input from "../../components/UI/Input/Input";
 import Select from "../../components/UI/Input/Select/Select";
 import { validate } from "../../form/formFramework";
 import { validateForm } from "../../form/formFramework";
+import axios from "axios";
 
 function createFormControls() {
   return {
@@ -174,8 +175,23 @@ export default class QuizCreator extends Component {
     });
   };
 
-  createQuizHandler = (e) => {
-    console.log(this.state.quiz);
+  createQuizHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(
+        "https://react-quiz-c09a9-default-rtdb.europe-west1.firebasedatabase.app/quizes.json",
+        this.state.quiz
+      );
+      this.setState({
+        quiz: [],
+        formControls: createFormControls(),
+        isFormValid: false,
+        rightAnswer: [],
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   render = () => {

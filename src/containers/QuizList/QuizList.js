@@ -14,16 +14,6 @@ export default class QuizList extends Component {
     });
   }
 
-  componentDidMount() {
-    axios
-      .get(
-        "https://react-quiz-c09a9-default-rtdb.europe-west1.firebasedatabase.app/Quiz.json"
-      )
-      .then((response) => {
-        console.log(response);
-      });
-  }
-
   render() {
     return (
       <div className="QuizList">
