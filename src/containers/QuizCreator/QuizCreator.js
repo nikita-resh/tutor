@@ -91,33 +91,49 @@ export default class QuizCreator extends Component {
     console.log(this.state.rightAnswer);
   };
 
+  addAnswerHandler = () => {
+    let index = 0;
+    for (let key in this.state.formControls) {
+      index++;
+    }
+    let str = "option" + index;
+
+    this.setState((state) => {
+      return {
+        formControls: {
+          ...this.state.formControls,
+          [str]: createControl(
+            {
+              label: `Вариант ${index}`,
+              errorMessage: "Значение не может быть пустым",
+            },
+            { required: true }
+          ),
+        },
+      };
+    });
+  };
+
   createQuizHandler() {}
 
-  render() {
+  render = () => {
+    let index = 0;
+    for (let key in this.state.formControls) {
+      index++;
+    }
+    console.log(index);
+    const options = [];
+    for (let i = 1; i < index; i++) {
+      options.push({ text: i, value: i });
+    }
+    // console.log(this.state.formControls);
     const select = (
       <Select
         label="Выбирете правильный ответ"
         value={this.state.rightAnswer}
         onChange={this.selectChangeHandler}
         key={Math.random()}
-        options={[
-          {
-            text: 1,
-            value: 1,
-          },
-          {
-            text: 2,
-            value: 2,
-          },
-          {
-            text: 3,
-            value: 3,
-          },
-          {
-            text: 4,
-            value: 4,
-          },
-        ]}
+        options={options}
       />
     );
 
@@ -134,9 +150,12 @@ export default class QuizCreator extends Component {
             <button type="primary" onClick={this.createQuizHandler}>
               Создать тест
             </button>
+            <button type="primary" onClick={this.addAnswerHandler}>
+              Добавить вариант ответа
+            </button>
           </form>
         </div>
       </div>
     );
-  }
+  };
 }
