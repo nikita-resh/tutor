@@ -9,15 +9,11 @@ class Quiz extends Component {
   state = {
     ActiveQuestion: 0,
     onCheckPress: 0,
-    quizTheme: "Раздзелы беларускай мовы. Паняцці мовы і маўлення.",
-    quizLevel: "лёгкі.",
-    videoLink: "",
-    creatorComment:
-      "“Выканайце гэты тэст увесь за адзін раз. Не трэба падзяляць яго на часткі: так працэс навучэння будзе праходзіць больш эфектыўна”.",
     answerState: null,
     isFinished: false,
     results: {},
     isRight: null,
+    length: null,
     answerArray: [],
     cheers: [
       "1 памыляючыся, ты вучышся новаму. Так трымаць!",
@@ -41,7 +37,7 @@ class Quiz extends Component {
   };
 
   onCheckClick = () => {
-    const question = this.state.quiz[this.state.ActiveQuestion];
+    const question = this.state.quiz.tasks[this.state.ActiveQuestion];
     const answers = this.state.answerArray;
     const rightAnswers = question.rightAnswer;
     const results = this.state.results;
@@ -50,6 +46,7 @@ class Quiz extends Component {
     if (results[question.id - 1]) {
       // первое нажатие при правильной первой попытке
       if (results[question.id - 1] === "success") {
+        console.log(this.state.length, this.state.ActiveQuestion);
         this.setState((state) => {
           return {
             onCheckPress: 0,
@@ -152,10 +149,10 @@ class Quiz extends Component {
   };
 
   isQuizFinished() {
-    return this.state.ActiveQuestion + 1 === this.state.quiz.length;
+    return this.state.ActiveQuestion + 1 === this.state.quiz.tasks.length;
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     // console.log("Quiz ID ", this.props.match.params.id);
     try {
       const response = await axios.get(
@@ -164,14 +161,19 @@ class Quiz extends Component {
       const quiz = response.data;
 
       this.setState({ quiz, loading: false });
+      this.setState((state) => {
+        return {
+          length: this.state.quiz.tasks.length,
+        };
+      });
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   render() {
     return this.state.isFinished ? (
-      <Finish results={this.state.results} quiz={this.state.quiz} />
+      <Finish results={this.state.results} quiz={this.state.quiz.tasks} />
     ) : (
       <div className="Quiz">
         {this.state.loading ? (
@@ -179,8 +181,10 @@ class Quiz extends Component {
         ) : (
           <div>
             <ActiveQuestion
-              question={this.state.quiz[this.state.ActiveQuestion]}
-              answersList={this.state.quiz[this.state.ActiveQuestion].answers}
+              question={this.state.quiz.tasks[this.state.ActiveQuestion]}
+              answersList={
+                this.state.quiz.tasks[this.state.ActiveQuestion].answers
+              }
               onAnswerClick={this.onAnswerClickHandler}
               state={this.state.answerState}
               onCheckClick={this.onCheckClick}
@@ -190,28 +194,25 @@ class Quiz extends Component {
               onCheckPress={this.state.onCheckPress}
               cheers={this.state.cheers}
               answerArray={this.state.answerArray}
-              length={this.state.quiz.length}
+              length={this.state.length}
             />
             <div className="Quiz__info">
               <h3>Інфармацыя пра тэст</h3>
               <p>
                 <b>Тэма:&nbsp;</b>
-                {this.state.quizTheme}
+                {this.state.quiz.quizTheme}
               </p>
               <p>
                 <b>Узровень цяжкасці:&nbsp;</b>
-                {this.state.quizLevel}
+                {this.state.quiz.quizLevel}
               </p>
               <p>
                 <b>Відэазанятак па гэтай тэме:&nbsp;</b>
-                <a href="https://www.google.com/search?q=tutoronline&oq=tutor&aqs=chrome.0.0i512j69i57j0i512l3j69i60j69i61l2.1286j0j7&sourceid=chrome&ie=UTF-8">
-                  спасылка
-                </a>
-                .
+                <a href={this.state.quiz.videoLink}>спасылка</a>.
               </p>
               <p>
                 <b>Каментар ад стваральнікаў: </b>
-                {this.state.creatorComment}
+                {this.state.quiz.creatorComment}
               </p>
             </div>
           </div>

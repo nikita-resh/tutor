@@ -54,7 +54,9 @@ function createFormControls() {
 }
 export default class QuizCreator extends Component {
   state = {
-    quiz: [],
+    quiz: {
+      tasks: [],
+    },
     formControls: createFormControls(),
     isFormValid: false,
     rightAnswer: [],
@@ -121,8 +123,9 @@ export default class QuizCreator extends Component {
   addQuestionHandler = (e) => {
     e.preventDefault();
 
-    const quiz = this.state.quiz.concat();
-    const index = quiz.length + 1;
+    const quiz = this.state.quiz;
+    const tasks = quiz.tasks.concat();
+    const index = quiz.tasks.length + 1;
 
     let answers = [];
     for (let key in this.state.formControls) {
@@ -141,10 +144,10 @@ export default class QuizCreator extends Component {
       answers: answers,
     };
 
-    quiz.push(questionItem);
+    tasks.push(questionItem);
 
     this.setState({
-      quiz,
+      quiz: { ...quiz, tasks: tasks },
       formControls: createFormControls(),
       isFormValid: false,
       rightAnswer: [],
@@ -181,7 +184,7 @@ export default class QuizCreator extends Component {
     try {
       await axios.post("/quizes.json", this.state.quiz);
       this.setState({
-        quiz: [],
+        quiz: { tasks: [] },
         formControls: createFormControls(),
         isFormValid: false,
         rightAnswer: [],
@@ -227,7 +230,7 @@ export default class QuizCreator extends Component {
             <button
               type="primary"
               onClick={this.createQuizHandler}
-              disabled={this.state.quiz.length === 0}
+              disabled={this.state.quiz.tasks.length === 0}
             >
               Создать тест
             </button>
