@@ -60,6 +60,7 @@ export default class QuizCreator extends Component {
     formControls: createFormControls(),
     isFormValid: false,
     rightAnswer: [],
+    exlanation: "",
   };
 
   submitHandler = (e) => {
@@ -100,6 +101,22 @@ export default class QuizCreator extends Component {
       );
     });
   }
+
+  renderExplanation() {
+    return (
+      <Input
+        label="Паясненне"
+        value={this.state.exlanation}
+        onChange={(e) => this.onChangeExplanation(e.target.value)}
+      />
+    );
+  }
+
+  onChangeExplanation = (value) => {
+    this.setState({
+      exlanation: value,
+    });
+  };
 
   selectChangeHandler = (e) => {
     // console.log(e.target.value);
@@ -142,6 +159,7 @@ export default class QuizCreator extends Component {
       id: index,
       rightAnswer: this.state.rightAnswer,
       answers: answers,
+      explanation: this.state.exlanation,
     };
 
     tasks.push(questionItem);
@@ -151,6 +169,7 @@ export default class QuizCreator extends Component {
       formControls: createFormControls(),
       isFormValid: false,
       rightAnswer: [],
+      explanation: "",
     });
   };
 
@@ -181,6 +200,7 @@ export default class QuizCreator extends Component {
   createQuizHandler = async (e) => {
     e.preventDefault();
 
+    console.log(this.state.quiz);
     try {
       await axios.post("/quizes.json", this.state.quiz);
       this.setState({
@@ -188,6 +208,7 @@ export default class QuizCreator extends Component {
         formControls: createFormControls(),
         isFormValid: false,
         rightAnswer: [],
+        explanation: "",
       });
     } catch (e) {
       console.log(e);
@@ -220,6 +241,7 @@ export default class QuizCreator extends Component {
           <form onSubmit={this.submitHandler}>
             {this.renderControls()}
             {select}
+            {this.renderExplanation()}
             <button
               type="primary"
               onClick={this.addQuestionHandler}
