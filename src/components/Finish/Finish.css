@@ -1,2 +1,17 @@
-.Finish {
+.Results {
+  margin-top: 20px;
+}
+
+.Results h1 {
+  font-size: 30px;
+  font: 500 normal 30px/40px "M PLUS Rounded 1c", sans-serif;
+  margin-bottom: 10px;
+}
+
+.Results p {
+  font: 500 normal 14px/19px "M PLUS Rounded 1c", sans-serif;
+}
+
+.error {
+  color: #ef5350;
 }

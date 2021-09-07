@@ -203,7 +203,10 @@ class Quiz extends Component {
         </header>
         <div className="wrapper">
           {this.state.isFinished ? (
-            <Finish results={this.state.results} quiz={this.state.quiz.tasks} />
+            <Finish
+              results={this.state.results}
+              tasks={this.state.quiz.tasks}
+            />
           ) : (
             <div className="Quiz">
               {this.state.loading ? (
