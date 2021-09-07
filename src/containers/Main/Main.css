@@ -286,6 +286,12 @@
   .bg {
     width: 950px;
   }
+  .lessons-items {
+    max-width: 640px !important;
+  }
+  .creators li {
+    width: 450px;
+  }
 }
 
 @media (min-width: 1300px) {
@@ -298,6 +304,9 @@
   .creators .wrapper {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .creators li {
+    width: 560px;
   }
 }
 
@@ -348,7 +357,7 @@
     max-width: 960px !important;
   }
   .creators .wrapper {
-    padding-left: 15px;
+    padding-left: 40px;
     padding-right: 15px;
   }
   .info h2 {

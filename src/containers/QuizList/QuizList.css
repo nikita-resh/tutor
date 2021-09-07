@@ -50,3 +50,33 @@ a .logo {
 .QuizList li a:hover {
   color: #ef5350;
 }
+
+@media (min-width: 1000px) {
+  .wrapper {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .wrapper {
+    width: 1150px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .wrapper {
+    width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .wrapper {
+    width: 1350px;
+  }
+}
