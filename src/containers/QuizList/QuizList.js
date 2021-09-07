@@ -43,12 +43,42 @@ export default class QuizList extends Component {
 
   render() {
     return (
-      <div className="QuizList">
-        <div>
-          <h1>Спіс тэстаў</h1>
-          {this.state.loading ? <Loader /> : <ul>{this.renderQuizes()}</ul>}
+      <>
+        <div id="telegram">
+          <div className="wrapper">
+            Новыя відэа ды тэсты курса “Вывучаем бел. мову ў сістэме” з’яўляюцца
+            кожны тыдзень!&nbsp;
+            <a href="https://web.telegram.org/k/">Наш бот ў тэлеграм.</a>
+          </div>
         </div>
-      </div>
+        <header className="header">
+          <div className="wrapper">
+            <NavLink to="/">
+              <div className="logo">Твой Бескаштоўны Рэпетытар</div>
+            </NavLink>
+            <ul className="menu" style={{ width: "450px" }}>
+              <li className="menu__item">
+                Курс “Вывучаем бел. мову ў сістэме”
+              </li>
+              <li>
+                <a href="https://www.youtube.com/">
+                  <button className="btn btn_nofill btn-watch">
+                    Глядзець курс
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <div className="QuizList">
+          <div className="wrapper">
+            <div>
+              <h1>Спіс тэстаў</h1>
+              {this.state.loading ? <Loader /> : <ul>{this.renderQuizes()}</ul>}
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }

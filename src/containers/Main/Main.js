@@ -67,7 +67,7 @@ class Main extends Component {
             <a href="https://web.telegram.org/k/">Наш бот ў тэлеграм.</a>
           </div>
         </div>
-        <header className="header">
+        <header className="header" style={{ boxShadow: "none" }}>
           <div className="wrapper">
             <div className="logo">Твой Бескаштоўны Рэпетытар</div>
             <ul className="menu">

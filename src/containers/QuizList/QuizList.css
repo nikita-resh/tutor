@@ -1,9 +1,52 @@
+#telegram {
+  width: 100%;
+  height: 40px;
+  color: white;
+  background-color: #5cc2ad;
+  font: 500 normal 15px/22px "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#telegram a {
+  color: white;
+}
+
+.header {
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.19);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.19);
+  box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.19);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a .logo {
+  color: black;
+}
+
 .QuizList h1 {
+  margin-top: 30px;
   font: 500 normal 32px/40px "M PLUS Rounded 1c", sans-serif;
 }
 
+.QuizList li {
+  margin-top: 20px;
+}
 .QuizList li a {
   color: black;
   text-decoration: none;
   font: 500 normal 16px/24px "M PLUS Rounded 1c", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.QuizList li a:hover {
+  color: #ef5350;
 }
