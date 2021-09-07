@@ -5,6 +5,8 @@ import Auth from "./containers/Auth/Auth";
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
 import QuizList from "./containers/QuizList/QuizList";
 import Main from "./containers/Main/Main";
+import "./fonts.css";
+import "./reset.css";
 
 import { Route, Switch } from "react-router-dom";
 

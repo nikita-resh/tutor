@@ -4,6 +4,7 @@ import ActiveQuestion from "../../components/ActiveQuestion/ActiveQuestion";
 import Finish from "../../components/Finish/Finish";
 import axios from "../../axios/axios-quiz";
 import Loader from "../../components/UI/Input/Loader/Loader";
+import { NavLink } from "react-router-dom";
 
 class Quiz extends Component {
   state = {
@@ -172,52 +173,84 @@ class Quiz extends Component {
   };
 
   render() {
-    return this.state.isFinished ? (
-      <Finish results={this.state.results} quiz={this.state.quiz.tasks} />
-    ) : (
-      <div className="Quiz">
-        {this.state.loading ? (
-          <Loader />
-        ) : (
-          <div>
-            <ActiveQuestion
-              question={this.state.quiz.tasks[this.state.ActiveQuestion]}
-              answersList={
-                this.state.quiz.tasks[this.state.ActiveQuestion].answers
-              }
-              onAnswerClick={this.onAnswerClickHandler}
-              state={this.state.answerState}
-              onCheckClick={this.onCheckClick}
-              isRight={this.state.isRight}
-              results={this.state.results}
-              ActiveQuestion={this.state.ActiveQuestion}
-              onCheckPress={this.state.onCheckPress}
-              cheers={this.state.cheers}
-              answerArray={this.state.answerArray}
-              length={this.state.length}
-            />
-            <div className="Quiz__info">
-              <h3>Інфармацыя пра тэст</h3>
-              <p>
-                <b>Тэма:&nbsp;</b>
-                {this.state.quiz.quizTheme}
-              </p>
-              <p>
-                <b>Узровень цяжкасці:&nbsp;</b>
-                {this.state.quiz.quizLevel}
-              </p>
-              <p>
-                <b>Відэазанятак па гэтай тэме:&nbsp;</b>
-                <a href={this.state.quiz.videoLink}>спасылка</a>.
-              </p>
-              <p>
-                <b>Каментар ад стваральнікаў: </b>
-                {this.state.quiz.creatorComment}
-              </p>
-            </div>
+    return (
+      <>
+        <div id="telegram">
+          <div className="wrapper">
+            Новыя відэа ды тэсты курса “Вывучаем бел. мову ў сістэме” з’яўляюцца
+            кожны тыдзень!&nbsp;
+            <a href="https://web.telegram.org/k/">Наш бот ў тэлеграм.</a>
           </div>
-        )}
-      </div>
+        </div>
+        <header className="header">
+          <div className="wrapper">
+            <NavLink to="/">
+              <div className="logo">Твой Бескаштоўны Рэпетытар</div>
+            </NavLink>
+            <ul className="menu" style={{ width: "450px" }}>
+              <li className="menu__item">
+                Курс “Вывучаем бел. мову ў сістэме”
+              </li>
+              <li>
+                <a href="https://www.youtube.com/">
+                  <button className="btn btn_nofill btn-watch">
+                    Глядзець курс
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <div className="wrapper">
+          {this.state.isFinished ? (
+            <Finish results={this.state.results} quiz={this.state.quiz.tasks} />
+          ) : (
+            <div className="Quiz">
+              {this.state.loading ? (
+                <Loader />
+              ) : (
+                <>
+                  <ActiveQuestion
+                    question={this.state.quiz.tasks[this.state.ActiveQuestion]}
+                    answersList={
+                      this.state.quiz.tasks[this.state.ActiveQuestion].answers
+                    }
+                    onAnswerClick={this.onAnswerClickHandler}
+                    state={this.state.answerState}
+                    onCheckClick={this.onCheckClick}
+                    isRight={this.state.isRight}
+                    results={this.state.results}
+                    ActiveQuestion={this.state.ActiveQuestion}
+                    onCheckPress={this.state.onCheckPress}
+                    cheers={this.state.cheers}
+                    answerArray={this.state.answerArray}
+                    length={this.state.length}
+                  />
+                  <div className="Quiz__info">
+                    <h3>Інфармацыя пра тэст</h3>
+                    <p>
+                      <b>Тэма:&nbsp;</b>
+                      {this.state.quiz.quizTheme}
+                    </p>
+                    <p>
+                      <b>Узровень цяжкасці:&nbsp;</b>
+                      {this.state.quiz.quizLevel}
+                    </p>
+                    <p>
+                      <b>Відэазанятак па гэтай тэме:&nbsp;</b>
+                      <a href={this.state.quiz.videoLink}>спасылка</a>.
+                    </p>
+                    <p>
+                      <b>Каментар ад стваральнікаў: </b>
+                      {this.state.quiz.creatorComment}
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 }
