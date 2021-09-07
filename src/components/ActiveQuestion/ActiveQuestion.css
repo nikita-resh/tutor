@@ -52,3 +52,33 @@
 .btn-check:hover {
   background-color: #4eac9915;
 }
+
+@media (min-width: 1000px) {
+  .ActiveQuestion {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .ActiveQuestion {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .ActiveQuestion {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .ActiveQuestion {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .ActiveQuestion {
+    width: 700px;
+  }
+}

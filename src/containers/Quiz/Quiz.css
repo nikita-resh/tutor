@@ -8,7 +8,7 @@ h2.Question {
   margin-top: 0;
   box-sizing: border-box;
   font: 500 normal 18px/27px "M PLUS Rounded 1c", sans-serif;
-  max-width: 580px;
+  max-width: 100%;
   padding: 15px;
   margin-bottom: 35px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -37,4 +37,49 @@ h2.Question {
 }
 .Quiz__info a {
   color: #ef5350;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    width: 900px;
+  }
+  .Quiz__info {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .wrapper {
+    width: 1150px;
+  }
+  .Quiz__info {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    width: 1200px;
+  }
+  .Quiz__info {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .wrapper {
+    width: 1260px;
+  }
+  .Quiz__info {
+    width: 600px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .wrapper {
+    width: 1350px;
+  }
+  .Quiz__info {
+    width: 600px;
+  }
 }
