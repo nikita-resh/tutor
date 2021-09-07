@@ -1,5 +1,3 @@
-import { is } from "@babel/types";
-
 export function createControl(config, validation) {
   return {
     ...config,

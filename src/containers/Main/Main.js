@@ -1,9 +1,62 @@
 import React, { Component } from "react";
 import "./Main.css";
 import { NavLink } from "react-router-dom";
-import Loader from "../../components/UI/Input/Loader/Loader";
+import LessonItem from "../../components/LessonItem/LessonItem";
 
 class Main extends Component {
+  state = {
+    lessons: [
+      {
+        id: 1,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+      {
+        id: 2,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+      {
+        id: 3,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+      {
+        id: 4,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+      {
+        id: 5,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+      {
+        id: 6,
+        title: "Раздзелы беларускай мовы. Нормы беларускай літаратурнай мовы.",
+        description:
+          "За гэты час мы з вамі зможам вывучыць ды паўтарыць 95% навучальнай праграмы Міністэрства Адукацыі РБ.",
+        lessonLink: "https://www.youtube.com/",
+        testLink: "/quiz-base",
+      },
+    ],
+  };
+
   render() {
     return (
       <>
@@ -19,16 +72,16 @@ class Main extends Component {
             <div className="logo">Твой Бескаштоўны Рэпетытар</div>
             <ul className="menu">
               <li className="menu__item">
-                <a href="">Курс “Вывучаем бел. мову ў сістэме”</a>
+                Курс “Вывучаем бел. мову ў сістэме”
               </li>
               <li className="menu__item">
                 <NavLink to="/quiz-base">База тэстаў</NavLink>
               </li>
               <li className="menu__item">
-                <a href="">Пра нас</a>
+                <a href="#creators">Пра нас</a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://www.youtube.com/">
                   <button className="btn btn_nofill btn-watch">
                     Глядзець курс
                   </button>
@@ -49,12 +102,12 @@ class Main extends Component {
                   Прыдатак да бескаштоўнага курса “Вывучэнне беларускай мовы ў
                   сістэме”, які дапаможа вам падрыхтавацца да ЦТ на 95+ балаў
                 </p>
-                <a href="#">
+                <a href="https://www.youtube.com/">
                   <button className="btn btn_fill btn-watch">
                     Глядзець курс
                   </button>
                 </a>
-                <a href="#">
+                <a href="#lessons">
                   <button className="btn btn_nofill btn-more-info">
                     Больш інфармацыі
                   </button>
@@ -62,165 +115,24 @@ class Main extends Component {
               </div>
             </div>
           </section>
-          <section className="videos">
+          <section id="lessons" className="lessons">
             <div className="wrapper">
               <div className="chapter-title">Уводзіны</div>
-              <div className="videos-items">
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">1</div>
-                    <div className="video__title">
-                      Раздзелы беларускай мовы. Нормы беларускай літаратурнай
-                      мовы.
-                    </div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">2</div>
-                    <div className="video__title">Паняцці мовы і маўлення.</div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
+              <div className="lessons-items">
+                <LessonItem lesson={this.state.lessons[0]} />
+                <LessonItem lesson={this.state.lessons[1]} />
               </div>
 
               <div className="chapter-title">Фанетыка і арфаэпія</div>
-              <div className="videos-items">
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">3</div>
-                    <div className="video__title">
-                      Раздзелы беларускай мовы. Нормы беларускай літаратурнай
-                      мовы.
-                    </div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">4</div>
-                    <div className="video__title">
-                      Раздзелы беларускай мовы. Нормы беларускай літаратурнай
-                      мовы.
-                    </div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">5</div>
-                    <div className="video__title">
-                      Раздзелы беларускай мовы. Нормы беларускай літаратурнай
-                      мовы.
-                    </div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="video">
-                  <div className="circle-title">
-                    <div className="circle">6</div>
-                    <div className="video__title">
-                      Раздзелы беларускай мовы. Нормы беларускай літаратурнай
-                      мовы.
-                    </div>
-                  </div>
-
-                  <div className="video__description">
-                    За гэты час мы з вамі зможам вывучыць ды паўтарыць 95%
-                    навучальнай праграмы Міністэрства Адукацыі РБ.
-                  </div>
-                  <div className="buttons">
-                    <a href="#">
-                      <div className="btn btn_fill btn-start">Пачаць</div>
-                    </a>
-
-                    <a href="#">
-                      <div className="btn btn_gold_nofill btn-video">
-                        Відэа па тэме
-                      </div>
-                    </a>
-                  </div>
-                </div>
+              <div className="lessons-items">
+                <LessonItem lesson={this.state.lessons[2]} />
+                <LessonItem lesson={this.state.lessons[3]} />
+                <LessonItem lesson={this.state.lessons[4]} />
+                <LessonItem lesson={this.state.lessons[5]} />
               </div>
             </div>
           </section>
-          <section className="creators">
+          <section id="creators" className="creators">
             <div className="wrapper">
               <small>Каму дзякаваць за тэсты?</small>
               <h3>Пра тых, хто стварае гэтую базу тэстаў</h3>
@@ -259,15 +171,15 @@ class Main extends Component {
             </div>
           </section>
         </main>
-        <footer class="footer">
-          <div class="wrapper">
+        <footer className="footer">
+          <div className="wrapper">
             <span>
               @Copyright 2021 | Сайт стварыў:&nbsp;
               <a href="https://nikita-resh.github.io/rsschool-cv/">
                 Мікіта Рашэтнікаў
               </a>
             </span>
-            <a href="#">Кантакты стваральнікаў курса</a>
+            <a href="#creators">Кантакты стваральнікаў курса</a>
           </div>
         </footer>
       </>

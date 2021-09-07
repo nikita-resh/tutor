@@ -174,10 +174,8 @@ export default class QuizCreator extends Component {
   };
 
   addAnswerHandler = () => {
-    let index = 0;
-    for (let key in this.state.formControls) {
-      index++;
-    }
+    let index = Object.keys(this.state.formControls).length;
+
     let str = "option" + index;
 
     this.setState((state) => {
@@ -216,10 +214,8 @@ export default class QuizCreator extends Component {
   };
 
   render = () => {
-    let index = 0;
-    for (let key in this.state.formControls) {
-      index++;
-    }
+    let index = Object.keys(this.state.formControls).length;
+
     const options = [];
     for (let i = 1; i < index; i++) {
       options.push({ text: i, value: i });
