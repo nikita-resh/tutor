@@ -33,6 +33,7 @@
 
 .btn {
   height: 38px;
+  cursor: pointer !important;
   border-radius: 5px;
   border: 2px solid #ef5350;
   font: 700 normal 14px/19px "M PLUS Rounded 1c", sans-serif;
@@ -151,7 +152,7 @@
   color: #ef5350;
 }
 
-.info .bg {
+.bg {
   background: #f7efe6;
   width: 1082px;
   height: 448px;
@@ -193,6 +194,7 @@
 }
 
 .creators {
+  margin-top: 40px;
   background: url("./bg/creators-bg.svg") center bottom no-repeat;
 }
 
@@ -275,4 +277,178 @@
 
 .footer .wrapper a {
   color: #000;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    width: 900px;
+  }
+  .bg {
+    width: 950px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .wrapper {
+    width: 1150px;
+  }
+  .bg {
+    width: 1250px;
+  }
+  .creators .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    width: 1200px;
+  }
+  .bg {
+    width: 1300px;
+  }
+  .lessons-items {
+    max-width: 960px !important;
+  }
+  .creators .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .info h2 {
+    width: 760px;
+  }
+  .info .offer {
+    width: 650px;
+  }
+  .info .btn {
+    margin-top: 40px;
+    text-decoration: none;
+  }
+
+  .info .btn_nofill {
+    margin-left: 24px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .info small {
+    padding-top: 72px !important;
+  }
+  .wrapper {
+    width: 1260px;
+  }
+  .logo {
+    font-size: 18px !important;
+  }
+  .bg {
+    width: 1400px;
+  }
+  .lessons-items {
+    max-width: 960px !important;
+  }
+  .creators .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .info h2 {
+    width: 760px;
+  }
+  .info .offer {
+    width: 650px;
+  }
+  .info .btn {
+    margin-top: 40px;
+    text-decoration: none;
+  }
+
+  .info .btn_nofill {
+    margin-left: 24px;
+  }
+
+  .lesson .btn {
+    height: 40px;
+  }
+
+  .lesson {
+    height: 280px !important;
+  }
+
+  .lessons .lesson__description {
+    font: 500 normal 15px/19px "M PLUS Rounded 1c", sans-serif !important;
+  }
+
+  .btn {
+    height: 45px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .logo {
+    font-size: 18px !important;
+  }
+  .wrapper {
+    width: 1350px;
+  }
+  .menu {
+    width: 700px !important;
+  }
+  .menu__item {
+    font-size: 16px;
+  }
+  .bg .wrapper .btn {
+    height: 50px;
+  }
+
+  .menu__item a {
+    font-size: 16px;
+  }
+  .bg {
+    width: 1500px;
+    height: 500px;
+  }
+  .lessons-items {
+    max-width: 1400px !important;
+  }
+  .creators .wrapper {
+    margin-top: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .creators small {
+    font-size: 18px !important;
+  }
+  .creators h3 {
+    font-size: 26px !important;
+    width: 400px !important;
+  }
+  .info small {
+    padding-top: 70px;
+    font-size: 16px;
+  }
+  .info h2 {
+    font-size: 40px;
+    line-height: 50px;
+    width: 760px;
+  }
+  .info .offer {
+    width: 650px;
+  }
+  .info .btn {
+    margin-top: 50px;
+    text-decoration: none;
+  }
+
+  .info .btn_nofill {
+    margin-left: 24px;
+  }
+
+  .lessons .lesson__description {
+    font: 500 normal 15px/19px "M PLUS Rounded 1c", sans-serif !important;
+  }
+
+  .btn {
+    height: 45px;
+    font: 700 normal 16px/19px "M PLUS Rounded 1c", sans-serif;
+  }
 }
