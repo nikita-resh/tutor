@@ -5,3 +5,33 @@
   padding: 10px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (min-width: 1000px) {
+  .Explanation {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .Explanation {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Explanation {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .Explanation {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .Explanation {
+    width: 700px;
+  }
+}

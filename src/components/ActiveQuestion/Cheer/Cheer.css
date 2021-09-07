@@ -20,3 +20,33 @@
 .Cheer a {
   color: #ef5350;
 }
+
+@media (min-width: 1000px) {
+  .Cheer {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .Cheer {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Cheer {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .Cheer {
+    width: 630px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .Cheer {
+    width: 700px;
+  }
+}
